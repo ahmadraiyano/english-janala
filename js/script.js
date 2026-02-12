@@ -18,6 +18,7 @@ const displayLessonWords = (words) => {
   wordsContainer.innerHTML = "";
 
   words.map((word) => {
+    console.log(word)
     const card = document.createElement("div");
     card.innerHTML = `
     <div class="bg-white rounded-xl shadow-sm text-center flex flex-col justify-evenly space-y-4 p-5">
