@@ -30,7 +30,7 @@
 
 <body>
     <header>
-        <div class="bg-base-100 shadow-sm">
+        <div class="bg-blue-100 shadow-sm">
             <div class="navbar w-11/12 mx-auto">
                 <div class="navbar-start">
                     <div class="dropdown">
@@ -54,7 +54,7 @@
                             </li>
                         </ul>
                     </div>
-                    <a class="btn btn-ghost text-xl">
+                    <a class="flex items-center text-xl cursor-pointer">
                         <span class="font-bold text-lg">English</span>
                         <img src="./assets/logo.png" alt="Logo">
                         <span class="bangla-font text-lg font-semibold">জানালা</span>
@@ -99,12 +99,12 @@
         </div>
     </section>
 
-    <section class="w-10/12 mx-auto">
+    <section class="w-10/12 mx-auto mt-24">
         <h2 class="mb-6 text-4xl text-center font-bold"><span class="text-blue-500">Let's</span> Learn Vocabularies</h2>
         <div id="level-container" class="flex flex-wrap gap-4 justify-center mb-4"></div>
     </section>
 
-    <section id="spinner" class="flex justify-center items-center py-10 hidden">
+    <section id="spinner" class="flex justify-center items-center py-10 hidden w-10/12 mx-auto">
         <span class="loading loading-bars loading-xl"></span>
     </section>
 
@@ -122,7 +122,7 @@
     <dialog id="word_modal" class="modal modal-bottom sm:modal-middle">
         <div class="modal-box">
             <div id="details-container" class="space-y-5 border border-gray-200 rounded-lg p-4">
-                
+
             </div>
             <div class="modal-action justify-start">
                 <form method="dialog">
@@ -132,6 +132,79 @@
             </div>
         </div>
     </dialog>
+
+    <section class="w-10/12 mx-auto space-y-2 mt-24">
+        <h2 class="mb-6 text-4xl text-center font-bold"><span class="text-blue-500">Frequently</span> Asked Questions
+        </h2>
+        <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border bg-gray-100 text-justify">
+            <div class="collapse-title font-semibold">1. How can I start learning English on this website?</div>
+            <div class="collapse-content text-sm">
+                You can start by exploring our beginner lessons, interactive exercises, and quizzes. We also offer
+                structured courses to guide you step by step.
+            </div>
+        </div>
+        <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border bg-gray-100 text-justify">
+            <div class="collapse-title font-semibold">2. Is this website free to use?</div>
+            <div class="collapse-content text-sm">
+                Yes — this English learning website is available for users at no cost and you do not need to pay to
+                access its content.
+            </div>
+        </div>
+        <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border bg-gray-100 text-justify">
+            <div class="collapse-title font-semibold">3. Do I need to create an account?</div>
+            <div class="collapse-content text-sm">
+                No — for this English learning web app, you do not need to create an account to use it. You can access
+                the lessons and content without signing up or registering, and there’s no login or account creation
+                required on the site itself.
+            </div>
+        </div>
+        <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border bg-gray-100 text-justify">
+            <div class="collapse-title font-semibold">4. How can I build my English vocabulary?</div>
+            <div class="collapse-content text-sm">
+                You can build your English vocabulary by regularly reading English content and noting new words, using
+                flashcards or a notebook to review them, watching or listening to English media like movies or podcasts,
+                and practicing the new words in your speaking and writing.
+            </div>
+        </div>
+        <div tabindex="0" class="collapse collapse-plus bg-base-100 border-base-300 border bg-gray-100 text-justify">
+            <div class="collapse-title font-semibold">5. Do you offer certificates for completed courses?</div>
+            <div class="collapse-content text-sm">
+                No — this English learning site does not provide certificates for completing lessons. It’s a simple
+                vocabulary/learning project without any certificate issuance feature.
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-blue-100 mt-24">
+        <div class="w-10/12 mx-auto footer sm:footer-horizontal text-base-content py-10 justify-between items-end">
+        <nav>
+            <a class="flex items-center text-xl cursor-pointer">
+                <span class="font-bold text-lg">English</span>
+                <img src="./assets/logo.png" alt="Logo">
+                <span class="bangla-font text-lg font-semibold">জানালা</span>
+            </a>
+            <h2 class="bangla-font text-gray-400 text-lg">ইংরেজি শিখুন সহজে</h2>
+            <p class="text-gray-400 text-lg">Providing ED-Tech Applications since 2025</p>
+        </nav>
+        <nav>
+            <h6 class="footer-title text-gray-500 text-lg">Follow Us</h6>
+            <div class="grid grid-flow-col gap-4 text-2xl ">
+                <a class="cursor-pointer">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a class="cursor-pointer">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a class="cursor-pointer">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a class="cursor-pointer">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </div>
+        </nav>
+        </div>
+    </footer>
 
 
     <script src="./js/script.js"></script>
