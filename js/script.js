@@ -3,6 +3,39 @@ const createElement = (arr) => {
   return htmlElement.join(" ");
 };
 
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-GB";
+
+  function setVoice() {
+    const voices = speechSynthesis.getVoices();
+
+    // Prefer Google UK Female (Chrome)
+    const britishFemale =
+      voices.find(v => v.name.includes("Google UK English Female")) ||
+      voices.find(v => v.lang === "en-GB" && v.name.toLowerCase().includes("female")) ||
+      voices.find(v => v.lang === "en-GB");
+
+    if (britishFemale) {
+      utterance.voice = britishFemale;
+    }
+
+    // Teen-like tuning
+    utterance.pitch = 1.4;  // higher = younger sound (range 0–2)
+    utterance.rate = 1.05;  // slightly faster
+    utterance.volume = 1;
+
+    speechSynthesis.speak(utterance);
+  }
+
+  if (speechSynthesis.getVoices().length === 0) {
+    speechSynthesis.onvoiceschanged = setVoice;
+  } else {
+    setVoice();
+  }
+}
+
+
 const manageSpinner = (status) => {
   if (status == true) {
     document.getElementById("spinner").classList.remove("hidden");
@@ -94,7 +127,7 @@ const displayLessonWords = (words) => {
             <div class="font-medium text-2xl bangla-font">${word.meaning ? word.meaning : `<span class="bg-red-500">অর্থ পাওয়া যায়নি</span>`} / ${word.pronunciation ? word.pronunciation : `<span class="bg-red-500">উচ্চারণ পাওয়া যায়নি</span>`}</div>
             <div class="flex justify-between items-center">
                 <button onclick="loadWordDetails(${word.id})" class="btn bg-blue-100 hover:bg-blue-300"><i class="fa-solid fa-circle-info"></i></button>
-                <button class="btn bg-blue-100 hover:bg-blue-300"><i class="fa-solid fa-volume-high"></i></button>
+                <button onclick="pronounceWord('${word.word}')" class="btn bg-blue-100 hover:bg-blue-300"><i class="fa-solid fa-volume-high"></i></button>
                 
             </div>
         </div>
