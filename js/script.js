@@ -88,7 +88,7 @@ const displayLessonWords = (words) => {
   words.map((word) => {
     const card = document.createElement("div");
     card.innerHTML = `
-    <div class="bg-white rounded-xl shadow-sm text-center flex flex-col justify-evenly space-y-4 p-5">
+    <div class="bg-white rounded-xl shadow-sm text-center flex flex-col justify-evenly space-y-4 p-5 h-64">
             <h2 class="font-bold text-2xl">${word.word ? word.word : `<span class="bg-red-500">শব্দ পাওয়া যায়নি</span>`}</h2>
             <p class="font-semibold">Meaning / Pronunciation</p>
             <div class="font-medium text-2xl bangla-font">${word.meaning ? word.meaning : `<span class="bg-red-500">অর্থ পাওয়া যায়নি</span>`} / ${word.pronunciation ? word.pronunciation : `<span class="bg-red-500">উচ্চারণ পাওয়া যায়নি</span>`}</div>
@@ -120,3 +120,21 @@ const displayLessons = (lessons) => {
 };
 
 loadLessons();
+
+document.getElementById("btn-search").addEventListener("click", () => {
+  removeActive();
+  const input = document.getElementById("input-search");
+  const searchValue = input.value.trim().toLowerCase();
+
+  fetch("https://openapi.programming-hero.com/api/words/all")
+    .then((res) => res.json())
+    .then((data) => {
+      const allWords = data.data;
+      const filterWords = allWords.filter((word) =>
+        word.word.toLowerCase().includes(searchValue),
+      );
+      if(searchValue.length != 0){
+      displayLessonWords(filterWords);
+      }
+    });
+});
